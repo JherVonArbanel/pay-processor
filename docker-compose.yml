@@ -1,0 +1,17 @@
+version: "3.3"
+services:
+    ach-notifier:
+        restart: always
+        environment:
+            - TTL_MINUTES=10
+            - DATABASE_USER=GANADERO
+            - DATABASE_PASSWORD=!7Kcht2!
+            - DATABASE_URL=172.16.1.20/BGDB
+        image: {{baseImage}}
+        ports:
+            - "{{externalPort}}:3000"
+            
+networks: 
+    default: 
+        external: 
+            name: {{network}}
